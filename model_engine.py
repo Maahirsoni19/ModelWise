@@ -28,7 +28,6 @@ def drop_useless_columns(df):
     return df, cols_to_drop
 # ─────────────────────────────────────────────
 # STEP 1: DETECT TASK TYPE
-# ─────────────────────────────────────────────
 def detect_task_type(df, target_col):
     target = df[target_col]
     unique_vals = target.nunique()
