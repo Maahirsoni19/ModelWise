@@ -192,8 +192,11 @@ if uploaded_file:
                 with col1:
                     st.metric("Before Tuning", tuned['base_score'])
                 with col2:
-                    st.metric("After Tuning", tuned['score'],
-                              delta=round(tuned['score'] - tuned['base_score'], 4))
+                    if tuned['score'] is not None:
+                        st.metric("After Tuning", tuned['score'],
+                                delta=round(tuned['score'] - tuned['base_score'], 4))
+                    else:
+                        st.info("This model has no hyperparameters to tune.")
                 st.write("Best Parameters Found:", tuned['params'])
                 path = save_best_model(tuned['model'], 'models/tuned_model.pkl')
                 st.success(f"💾 Tuned model saved to `{path}`")
