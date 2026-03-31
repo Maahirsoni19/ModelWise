@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.model_selection import cross_val_score
 import shap
 from model_engine import (
     detect_task_type, train_and_evaluate,
@@ -32,9 +33,12 @@ if uploaded_file:
             st.info("🟠 Task detected: **Regression** — predicting a number")
 
         if st.button("🚀 Train Models"):
-            with st.spinner("Training 4 models... (usually < 30 seconds)"):
-                results, task, feature_names = train_and_evaluate(df, target_col)
+            @st.cache_data
+            def cached_train(df, target_col):
+                return train_and_evaluate(df, target_col)
 
+            with st.spinner("Training models... (first run takes longer on cloud)"):
+                results, task, feature_names = cached_train(df, target_col)
             # ── Save to session state ──
             st.session_state['results']       = results
             st.session_state['task']          = task

@@ -74,17 +74,17 @@ def train_and_evaluate(df, target_col):
 
     if task == 'classification':
         models = {
-            'LightGBM':          LGBMClassifier(n_estimators=100, random_state=42, verbose=-1),
-            'XGBoost':           XGBClassifier(n_estimators=100, random_state=42, eval_metric='logloss', verbosity=0),
-            'Random Forest':     RandomForestClassifier(n_estimators=100, random_state=42),
+            'LightGBM':          LGBMClassifier(n_estimators=70, random_state=42, verbose=-1),
+            'XGBoost':           XGBClassifier(n_estimators=70, random_state=42, eval_metric='logloss', verbosity=0),
+            'Random Forest':     RandomForestClassifier(n_estimators=70, random_state=42),
             'Logistic Regression': LogisticRegression(max_iter=1000, random_state=42),
         }
         cv_scoring='accuracy'
     else:
         models = {
-            'LightGBM':        LGBMRegressor(n_estimators=100, random_state=42, verbose=-1),
-            'XGBoost':         XGBRegressor(n_estimators=100, random_state=42, verbosity=0),
-            'Random Forest':   RandomForestRegressor(n_estimators=100, random_state=42),
+            'LightGBM':        LGBMRegressor(n_estimators=70, random_state=42, verbose=-1),
+            'XGBoost':         XGBRegressor(n_estimators=70, random_state=42, verbosity=0),
+            'Random Forest':   RandomForestRegressor(n_estimators=70, random_state=42),
             'Linear Regression': LinearRegression(),
         }
         cv_scoring='r2'
@@ -213,4 +213,3 @@ def save_best_model(model, filename='models/best_model.pkl'):
     os.makedirs('models', exist_ok=True)
     joblib.dump(model, filename)
     return filename
-
