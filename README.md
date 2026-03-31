@@ -1,5 +1,6 @@
 # **ModelWise**
-
+## 🚀 Live Demo
+👉 [modelwise.streamlit.app](https://modelwise.streamlit.app)
 I built this because I was tired of writing the same model comparison code every time I started a new ML project. You upload a CSV, pick what you want to predict, and it handles the rest.
 
 ## **What it does**
