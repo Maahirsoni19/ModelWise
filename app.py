@@ -262,6 +262,6 @@ if uploaded_file:
                             confidence = round(max(proba) * 100, 1)
                             st.success(f"**Prediction: {prediction}** — Confidence: {confidence}%")
                         else:
-                            st.success(f"**Predicted Value: {prediction}**")
+                            st.success(f"**Predicted Value: {round(float(prediction), 2)}**")
                     except Exception as e:
                         st.error(f"Prediction failed: {e}")
