@@ -11,6 +11,15 @@ Figures out whether your problem is classification or regression, trains four mo
 
 It also shows you which features are driving predictions using SHAP, gives you a confusion matrix if you're doing classification, and lets you tune the best model with one click. When you're done, you can download the trained model as a `.pkl` file and plug it straight into an API.
 
+## Who is this for?
+
+ModelWise is built for ML learners and competition participants who already 
+understand data cleaning and feature engineering but don't want to write 
+the same model comparison code from scratch every time.
+
+**You handle:** data cleaning, feature engineering, domain knowledge
+**ModelWise handles:** model selection, evaluation, explainability, export
+
 ##  Try it with the sample dataset
 
 A sample sustainability dataset is included in this repo (`sustainability_data.csv`).
